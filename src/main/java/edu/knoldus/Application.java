@@ -10,6 +10,6 @@ public class Application {
         System.out.println("days for birthDate- 15-06-1994 " + Operations.getBirthDateDays(LocalDate.of(1994, 6, 15)));
         System.out.println("currentTime according to UTC timeZone " + Operations.getTimeFromTimeZone("UTC"));
         System.out.println("Seconds Mahatma gandhi lived " + Operations.getSecondsLived());
-        System.out.println("Leap years from 1990 till now " + Operations.getLeapYears());
+        System.out.println("Leap years from 1990 till now " + Operations.getLeapYears(1900,LocalDate.now().getYear()));
     }
 }

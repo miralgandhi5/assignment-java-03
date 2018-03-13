@@ -26,7 +26,7 @@ public class Operations {
         String day = date.getDayOfWeek().toString();
         result.add(day);
         LocalDate currentDate = date.plusYears(1);
-        while (currentDate.getYear() < (LocalDate.now()).getYear()) {
+        while (currentDate.getYear() <= (LocalDate.now()).getYear()) {
             result.add(currentDate.getDayOfWeek().toString());
             currentDate = currentDate.plusYears(1);
         }
@@ -45,6 +45,8 @@ public class Operations {
         ZoneId zone = TimeZone.getTimeZone(timeZone).toZoneId();
         return LocalTime.now(zone).toString();
 
+
+
     }
 
     /**
@@ -55,7 +57,7 @@ public class Operations {
 
     public static Long getSecondsLived() {
         LocalDate birthDate = LocalDate.of(1869, 10, 2);
-        LocalDate deathDate = LocalDate.of(1949, 1, 30);
+        LocalDate deathDate = LocalDate.of(1948, 1, 30);
         long days = DAYS.between(birthDate, deathDate);
         return Duration.ofDays(days).getSeconds();
     }
@@ -66,13 +68,12 @@ public class Operations {
      * @return list of leap years till date.
      */
 
-    public static List<Integer> getLeapYears() {
+    public static List<Integer> getLeapYears(Integer startYear,Integer endYear) {
 
-        LocalDate currentDate = LocalDate.ofYearDay(1990, 1);
-        LocalDate endDate = LocalDate.now();
+        LocalDate currentDate = LocalDate.ofYearDay(startYear, 1);
         List<Integer> leapYearList = new ArrayList<>();
 
-        while (currentDate.getYear() <= endDate.getYear()) {
+        while (currentDate.getYear() <= endYear) {
             if (currentDate.isLeapYear()) {
                 leapYearList.add(currentDate.getYear());
             }
